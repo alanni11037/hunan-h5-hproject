@@ -1,0 +1,319 @@
+/* --- 通用基础与像素风格设置 --- */
+body {
+    background-color: #333; 
+    color: #00FF00; 
+    font-family: 'ZCOOL KuaiLe', 'SimHei', sans-serif; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#h5-container {
+    width: 100%;
+    max-width: 450px; 
+    height: 100vh;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    background-color: #222;
+    border: 5px solid #00FF00; 
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 场景通用样式 */
+.scene {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.scene.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+h1 { font-size: 1.8em; margin-bottom: 10px; }
+h2 { font-size: 1.5em; margin-bottom: 15px; }
+p { font-size: 1em; line-height: 1.6; margin-bottom: 10px; }
+
+/* 规则框 (模拟终端窗口) */
+.rules-box {
+    border: 2px dashed #FF00FF; 
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin: 20px 0;
+    width: 90%;
+    max-width: 300px;
+    text-align: left;
+}
+
+/* 按钮样式 - 像素风格 */
+button, .cta-button, .pixel-input {
+    background-color: #008800; 
+    color: #FFFFFF;
+    border: 3px solid #00FF00;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #005500; 
+    transition: all 0.1s;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box; /* 确保 padding 不会增加总宽度 */
+}
+
+button:hover, .cta-button:hover {
+    background-color: #00AA00;
+    box-shadow: 1px 1px 0 #005500;
+    transform: translate(1px, 1px);
+}
+
+/* 反馈消息 */
+.feedback {
+    color: #FFD700; 
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+.final-message {
+    font-size: 1.5em;
+    color: #FF00FF;
+    animation: flicker 1.5s infinite alternate; 
+}
+
+/* 像素闪烁动画 */
+@keyframes flicker {
+    from { opacity: 1; text-shadow: 0 0 5px #FF00FF; }
+    to { opacity: 0.8; text-shadow: 0 0 20px #FF00FF; }
+}
+
+/* --- 新增或修改的优化样式 --- */
+
+/* 启动页邀请函样式 */
+.invite-title {
+    font-size: 2.2em;
+    color: #00FFFF; /* 青色霓虹 */
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px #00FFFF;
+}
+
+.invite-subtitle {
+    font-size: 1.2em;
+    color: #FFD700; /* 金色提示 */
+    margin-bottom: 20px;
+}
+
+.invite-box {
+    border: 2px solid #00FFFF; /* 邀请函边框更亮 */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    max-width: 350px;
+    text-align: center;
+    color: #CCFFCC;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.accept-button {
+    background-color: #FF00FF; /* 接受按钮使用更醒目的颜色 */
+    border-color: #00FFFF;
+    box-shadow: 3px 3px 0 #880088;
+    font-size: 1.3em;
+    padding: 12px 25px;
+    margin-top: 25px;
+}
+
+.accept-button:hover {
+    background-color: #FF55FF;
+    box-shadow: 2px 2px 0 #880088;
+}
+
+/* 像素图标通用样式（修复“裂图”问题） */
+.pixel-icon {
+    width: 64px; /* 固定尺寸，避免拉伸 */
+    height: 64px;
+    image-rendering: crisp-edges; /* 保持像素清晰 */
+    image-rendering: pixelated; /* 现代浏览器支持 */
+    margin: 20px 0;
+    border: none; /* 移除可能存在的边框 */
+    background-color: transparent; /* 确保背景透明 */
+}
+
+/* 图标脉动动画 */
+.pixel-icon.pulse-animation {
+    animation: pulse-icon 2s infinite ease-in-out;
+}
+
+@keyframes pulse-icon {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* ================================================= */
+/* 场景专属样式：氛围与图片引用 (全部改为 cover)      */
+/* ================================================= */
+
+/* 场景 0: 封面/入口 - 终端机界面 */
+#scene-0 {
+    background-color: #000000;
+    /* 建议使用一张像素化的科技感背景图或深色星空图 */
+    background-image: url('./images/xing.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-color: #FF00FF; 
+}
+
+/* 场景 1: 橘子洲头 - 青年之问 */
+#scene-1 {
+    background-color: #1a4d3a; 
+    /* 使用您的风景图片，这里假设是 JPG */
+    background-image: url('./images/juzizhou.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: #CCFFCC; 
+}
+
+/* 场景 2: 岳麓书院 - 读书人守则 */
+#scene-2 {
+    background-color: #583c26; 
+    /* 建议使用书院风景或古籍纹理的图片 */
+    background-image: url('./images/yuelushan1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #FFDD99; 
+}
+
+/* 场景 3: 张家界 - 奇险试炼 */
+#scene-3 {
+    background-color: #121f2d; 
+    /* 建议使用张家界山峰实景图 */
+    background-image: url('./images/zhangjiajie.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #AAAAFF; 
+}
+
+/* 场景 4: 凤凰古城 - 边城迷雾 */
+#scene-4 {
+    background-color: #3f3f3f; 
+    /* 建议使用凤凰古城实景图 */
+    background-image: url('./images/fenghuang.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #FFFFFF; 
+}
+
+/* 场景 5: 湘菜 - 火焰秘方 */
+#scene-5 {
+    background-color: #7b0000; 
+    /* 建议使用一张诱人的湘菜实景图，如剁椒鱼头特写 */
+    background-image: url('./images/xiangcai.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #FFC000; 
+}
+
+/* 场景 6: 终点/解锁 - 奖励界面 */
+#scene-6 {
+    background-color: #000000;
+    /* 建议使用一张充满希望或宏伟的湖南地标全景图 */
+    background-image: url('./images/jiewei.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    border-color: #00FFFF; 
+}
+
+/* 选项按钮容器 */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+/* 题目文本样式 */
+.quiz-text {
+    font-size: 1.2em;
+    color: #FFF;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* 输入框样式 */
+.pixel-input {
+    border: 3px solid #00FF00;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 10px;
+    font-size: 1em;
+    text-align: center;
+    width: 80%;
+    max-width: 250px; /* 限制最大宽度 */
+    margin: 10px auto; /* 居中 */
+}
+
+/* 湘菜配料按钮 */
+.ingredient-button {
+    background-color: #333;
+    border: 2px solid #999;
+    color: #999;
+    transition: all 0.1s;
+}
+
+/* 湘菜配料选中状态 */
+.ingredient-button.selected {
+    background-color: #FF4500; /* 辣椒红 */
+    border-color: #FFD700;
+    color: #FFFFFF;
+    box-shadow: 0 0 5px #FFD700;
+}
+
+/* 张家界点击区域 */
+#click-area-3 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* 圆形点击区 */
+    background-color: rgba(255, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow: 1px 1px #000;
+    animation: pulse 1s infinite;
+}
+
+/* 点击区域动画 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

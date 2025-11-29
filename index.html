@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三湘秘境规则手册 | 湖南文旅</title>
+    <link rel="stylesheet" href="./style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="h5-container">
+        
+        <section id="scene-0" class="scene active">
+            <h1 class="invite-title">三湘秘境管理局</h1>
+            <p class="invite-subtitle">机密任务：湖南文旅探秘</p>
+            
+            <img src="./images/pixel_envelope.png" alt="像素化邀请函图标" class="pixel-icon pulse-animation">
+            
+            <div class="rules-box invite-box">
+                <p>亲爱的旅行者：</p>
+                <p>恭喜您获得进入“三湘秘境”的资格！</p>
+                <p>此地规则**奇绝，蕴藏湖湘人文与自然之大美**。</p>
+                <p>接受规则的挑战，解锁湖南真正的魅力。</p>
+                <p class="final-message">「接受任务，开启旅程？」</p>
+            </div>
+            <button onclick="nextScene(1)" class="accept-button">[接受任务]</button>
+            <div class="pixel-border"></div>
+        </section>
+
+        <section id="scene-1" class="scene">
+            <h2>🌊 规则一：橘子洲头 - 青年之问</h2>
+            <div class="rules-box">
+                <p>江风中传来一个声音：伟人在橘子洲头写下了豪迈的诗篇。请指出与当时心境最贴切的下一句规则：</p>
+            </div>
+            <div class="options-container">
+                <button class="option-button" onclick="checkAnswer(1, 'A')">A. 到中流击水，浪遏飞舟。</button>
+                <button class="option-button" onclick="checkAnswer(1, 'B')">B. 停车坐爱枫林晚。</button>
+                <button class="option-button" onclick="checkAnswer(1, 'C')">C. 问人间谁是英雄。</button>
+            </div>
+            <p id="feedback-1" class="feedback"></p>
+        </section>
+
+        <section id="scene-2" class="scene">
+            <h2>📜 规则二：岳麓书院 - 读书人守则</h2>
+            <div class="rules-box">
+                <p>山长留下对联：“**惟楚有材，于斯为盛**”。湖湘人才代代辈出，求知精神是通关唯一的真言。</p>
+                <p class="quiz-text">请将这段文脉记忆在心，并承诺继续学习，然后按下按钮，证明你的求知欲。</p>
+            </div>
+            <button onclick="nextScene(3)">[求知：继续旅程]</button>
+            <p id="feedback-2" class="feedback"></p>
+        </section>
+
+        <section id="scene-3" class="scene">
+            <h2>⛰️ 规则三：张家界 - 天门山试炼</h2>
+            <div class="rules-box">
+                <p>你站在玻璃栈道。规则要求：在 <span id="timer-3">5</span> 秒内完成 **10** 次“心跳加速”点击，以证明勇气！</p>
+            </div>
+            <button id="start-3" onclick="startChallenge(3)">[开始试炼]</button>
+            <button id="click-area-3" style="display: none;">心跳：<span id="counter-3">0</span>/10</button>
+            <p id="feedback-3" class="feedback"></p>
+        </section>
+        
+        <section id="scene-4" class="scene">
+            <h2>🛶 规则四：凤凰古城 - 边城迷雾</h2>
+            <div class="rules-box">
+                <p>边城规则：在雾中只能相信你看到的。请点选正确的描述：</p>
+            </div>
+            <div class="options-container">
+                <button class="option-button" onclick="checkAnswer(4, 'A')">A. 沱江水是绿色的。</button>
+                <button class="option-button" onclick="checkAnswer(4, 'B')">B. 虹桥上有三个摊贩。</button>
+                <button class="option-button" onclick="checkAnswer(4, 'C')">C. 吊脚楼有三层高。</button>
+            </div>
+            <p id="feedback-4" class="feedback"></p>
+        </section>
+        
+        <section id="scene-5" class="scene">
+            <h2>🔥 规则五：湘菜 - 火焰秘方</h2>
+            <div class="rules-box">
+                <p>请选择烹饪“火焰秘方”（经典湘菜）时，**至少需要**使用的三种关键配料，多选后提交。</p>
+            </div>
+            <div class="options-container">
+                <button class="ingredient-button" data-key="chili" onclick="toggleIngredient(this)">辣椒</button>
+                <button class="ingredient-button" data-key="garlic" onclick="toggleIngredient(this)">蒜蓉</button>
+                <button class="ingredient-button" data-key="sugar" onclick="toggleIngredient(this)">白糖</button>
+                <button class="ingredient-button" data-key="soy" onclick="toggleIngredient(this)">酱油</button>
+                <button class="ingredient-button" data-key="vinegar" onclick="toggleIngredient(this)">醋</button>
+            </div>
+            <button onclick="checkAnswer(5)">[提交秘方]</button>
+            <p id="feedback-5" class="feedback"></p>
+        </section>
+
+        <section id="scene-6" class="scene">
+            <h2>🎉 秘境解锁：恭喜你，旅行者！</h2>
+            <p>你已掌握三湘秘境的全部规则。所有规则指向同一真理：</p>
+            <p class="final-message">「湖南，值得你亲身来验证」</p>
+            <a href="https://hunan.tianditu.gov.cn/TDTHN/portal/index.html" target="_blank" class="cta-button">[现在出发 验证规则]</a>
+        </section>
+        
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
