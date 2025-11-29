@@ -10,7 +10,6 @@ body {
     min-height: 100vh; /* 通用回退 */
     min-height: -webkit-fill-available; /* 苹果 Safari 的优化属性 */
     
-    overflow: hidden; /* 保持隐藏滚动条 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +25,6 @@ body {
     border: none !important; 
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
 }
 
 /* 场景通用样式 */
@@ -322,5 +320,6 @@ h1, h2, .invite-title, .final-message {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
 
 
