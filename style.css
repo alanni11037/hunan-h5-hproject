@@ -16,7 +16,8 @@ body {
     width: 100%;
     max-width: 450px; 
     height: 100vh;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    /* 移除硬边框，采用光晕效果 */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); 
     background-color: #222;
     border: 5px solid #00FF00; 
     box-sizing: border-box;
@@ -40,6 +41,10 @@ body {
     left: 0;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    
+    /* 霓虹风格增强 */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); 
+    border: none; 
 }
 
 .scene.active {
@@ -51,38 +56,39 @@ h1 { font-size: 1.8em; margin-bottom: 10px; }
 h2 { font-size: 1.5em; margin-bottom: 15px; }
 p { font-size: 1em; line-height: 1.6; margin-bottom: 10px; }
 
-/* 规则框 (模拟终端窗口) */
+/* 规则框 (模拟终端窗口) - 提升质感 */
 .rules-box {
-    border: 2px dashed #FF00FF; 
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
+    border: 2px solid #00FFFF; /* 边框改为青色实线 */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* 柔和霓虹光晕 */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 18px;
     margin: 20px 0;
     width: 90%;
-    max-width: 300px;
+    max-width: 320px;
     text-align: left;
 }
 
-/* 按钮样式 - 像素风格 */
+/* 按钮样式 - 霓虹化 */
 button, .cta-button, .pixel-input {
-    background-color: #008800; 
+    background-color: #004400; /* 深绿色背景 */
     color: #FFFFFF;
-    border: 3px solid #00FF00;
+    border: 2px solid #00FF00;
     padding: 10px 20px;
     margin: 10px;
     font-size: 1.1em;
     cursor: pointer;
-    box-shadow: 2px 2px 0 #005500; 
-    transition: all 0.1s;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.7); /* 绿色柔和光晕 */
+    transition: all 0.2s;
     font-family: inherit;
     text-decoration: none;
     display: inline-block;
-    box-sizing: border-box; /* 确保 padding 不会增加总宽度 */
+    box-sizing: border-box; 
 }
 
 button:hover, .cta-button:hover {
-    background-color: #00AA00;
-    box-shadow: 1px 1px 0 #005500;
-    transform: translate(1px, 1px);
+    background-color: #006600;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 1); /* 悬停时光晕增强 */
+    transform: scale(1.05); /* 增加轻微放大效果 */
 }
 
 /* 反馈消息 */
@@ -92,10 +98,16 @@ button:hover, .cta-button:hover {
     min-height: 20px;
 }
 
+/* 文本美化 */
 .final-message {
     font-size: 1.5em;
-    color: #FF00FF;
+    /* 继承 h1/h2 的霓虹样式 */
     animation: flicker 1.5s infinite alternate; 
+}
+
+h1, h2, .invite-title, .final-message {
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF; /* 标题增加青色霓虹文字阴影 */
+    color: #00FFFF;
 }
 
 /* 像素闪烁动画 */
@@ -109,19 +121,17 @@ button:hover, .cta-button:hover {
 /* 启动页邀请函样式 */
 .invite-title {
     font-size: 2.2em;
-    color: #00FFFF; /* 青色霓虹 */
     margin-bottom: 5px;
-    text-shadow: 0 0 10px #00FFFF;
 }
 
 .invite-subtitle {
     font-size: 1.2em;
-    color: #FFD700; /* 金色提示 */
+    color: #FFD700; 
     margin-bottom: 20px;
 }
 
 .invite-box {
-    border: 2px solid #00FFFF; /* 邀请函边框更亮 */
+    border: 2px solid #00FFFF; 
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     max-width: 350px;
@@ -132,9 +142,9 @@ button:hover, .cta-button:hover {
 }
 
 .accept-button {
-    background-color: #FF00FF; /* 接受按钮使用更醒目的颜色 */
+    background-color: #FF00FF; 
     border-color: #00FFFF;
-    box-shadow: 3px 3px 0 #880088;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
     font-size: 1.3em;
     padding: 12px 25px;
     margin-top: 25px;
@@ -142,18 +152,18 @@ button:hover, .cta-button:hover {
 
 .accept-button:hover {
     background-color: #FF55FF;
-    box-shadow: 2px 2px 0 #880088;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 1);
 }
 
-/* 像素图标通用样式（修复“裂图”问题） */
+/* 像素图标通用样式 */
 .pixel-icon {
-    width: 64px; /* 固定尺寸，避免拉伸 */
+    width: 64px; 
     height: 64px;
-    image-rendering: crisp-edges; /* 保持像素清晰 */
-    image-rendering: pixelated; /* 现代浏览器支持 */
+    image-rendering: crisp-edges; 
+    image-rendering: pixelated; 
     margin: 20px 0;
-    border: none; /* 移除可能存在的边框 */
-    background-color: transparent; /* 确保背景透明 */
+    border: none; 
+    background-color: transparent; 
 }
 
 /* 图标脉动动画 */
@@ -167,6 +177,18 @@ button:hover, .cta-button:hover {
     100% { transform: scale(1); opacity: 1; }
 }
 
+/* 作弊/跳过按钮的样式 - 特殊警告色 */
+.skip-button {
+    background-color: rgba(100, 0, 0, 0.7); /* 深红色半透明背景 */
+    border-color: #FF4500;
+    color: #FFC0CB;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.8); /* 橙红色光晕 */
+    margin-top: 30px; 
+}
+.skip-button:hover {
+    background-color: rgba(150, 0, 0, 0.8);
+}
+
 
 /* ================================================= */
 /* 场景专属样式：氛围与图片引用 (全部改为 cover)      */
@@ -175,8 +197,7 @@ button:hover, .cta-button:hover {
 /* 场景 0: 封面/入口 - 终端机界面 */
 #scene-0 {
     background-color: #000000;
-    /* 建议使用一张像素化的科技感背景图或深色星空图 */
-    background-image: url('./images/xing.jpg'); 
+    background-image: url('./images/bg_start_screen.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -186,8 +207,7 @@ button:hover, .cta-button:hover {
 /* 场景 1: 橘子洲头 - 青年之问 */
 #scene-1 {
     background-color: #1a4d3a; 
-    /* 使用您的风景图片，这里假设是 JPG */
-    background-image: url('./images/juzizhou.jpg'); 
+    background-image: url('./images/bg_juzizhou.jpg'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -197,8 +217,7 @@ button:hover, .cta-button:hover {
 /* 场景 2: 岳麓书院 - 读书人守则 */
 #scene-2 {
     background-color: #583c26; 
-    /* 建议使用书院风景或古籍纹理的图片 */
-    background-image: url('./images/yuelushan1.jpg'); 
+    background-image: url('./images/bg_yuelu_academy.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -208,8 +227,7 @@ button:hover, .cta-button:hover {
 /* 场景 3: 张家界 - 奇险试炼 */
 #scene-3 {
     background-color: #121f2d; 
-    /* 建议使用张家界山峰实景图 */
-    background-image: url('./images/zhangjiajie.jpg'); 
+    background-image: url('./images/bg_zhangjiajie.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -219,8 +237,7 @@ button:hover, .cta-button:hover {
 /* 场景 4: 凤凰古城 - 边城迷雾 */
 #scene-4 {
     background-color: #3f3f3f; 
-    /* 建议使用凤凰古城实景图 */
-    background-image: url('./images/fenghuang.jpg'); 
+    background-image: url('./images/bg_phoenix_city.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -230,8 +247,7 @@ button:hover, .cta-button:hover {
 /* 场景 5: 湘菜 - 火焰秘方 */
 #scene-5 {
     background-color: #7b0000; 
-    /* 建议使用一张诱人的湘菜实景图，如剁椒鱼头特写 */
-    background-image: url('./images/xiangcai.jpg'); 
+    background-image: url('./images/bg_xiangcai.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -241,8 +257,7 @@ button:hover, .cta-button:hover {
 /* 场景 6: 终点/解锁 - 奖励界面 */
 #scene-6 {
     background-color: #000000;
-    /* 建议使用一张充满希望或宏伟的湖南地标全景图 */
-    background-image: url('./images/jiewei.jpg'); 
+    background-image: url('./images/bg_hunan_panorama.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -266,19 +281,6 @@ button:hover, .cta-button:hover {
     font-weight: bold;
 }
 
-/* 输入框样式 */
-.pixel-input {
-    border: 3px solid #00FF00;
-    background-color: #000000;
-    color: #FFFFFF;
-    padding: 10px;
-    font-size: 1em;
-    text-align: center;
-    width: 80%;
-    max-width: 250px; /* 限制最大宽度 */
-    margin: 10px auto; /* 居中 */
-}
-
 /* 湘菜配料按钮 */
 .ingredient-button {
     background-color: #333;
@@ -289,7 +291,7 @@ button:hover, .cta-button:hover {
 
 /* 湘菜配料选中状态 */
 .ingredient-button.selected {
-    background-color: #FF4500; /* 辣椒红 */
+    background-color: #FF4500; 
     border-color: #FFD700;
     color: #FFFFFF;
     box-shadow: 0 0 5px #FFD700;
@@ -299,7 +301,7 @@ button:hover, .cta-button:hover {
 #click-area-3 {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* 圆形点击区 */
+    border-radius: 50%; 
     background-color: rgba(255, 0, 0, 0.6);
     display: flex;
     justify-content: center;
@@ -316,58 +318,4 @@ button:hover, .cta-button:hover {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
-
-}
-
-/* --- 像素游戏风格增强：外边框和阴影 --- */
-
-/* 场景容器添加像素边框和内阴影 */
-.scene {
-    box-shadow: 
-        inset 0 0 0 4px #00FF00, /* 内部绿色边框 */
-        0 0 20px #000;          /* 外部柔和阴影 */
-    border: none; /* 移除原来的边框，交给阴影处理 */
-}
-
-/* 规则框添加更明显的像素化边框和深度 */
-.rules-box {
-    /* 模拟像素深度和阴影 */
-    box-shadow: 4px 4px 0 #550055, /* 像素块阴影 */
-                inset 0 0 0 3px #FF00FF; /* 内部霓虹边框 */
-    border: none; /* 移除原来的 dashed 边框 */
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: perspective(1px); /* 修复部分安卓/iOS 渲染问题 */
-}
-
-/* 按钮添加硬核像素边框 */
-button, .cta-button, .pixel-input {
-    /* 将原来的 box-shadow 改为更清晰的像素边框 */
-    box-shadow: 
-        -4px -4px 0 #005500, /* 上左阴影 */
-        4px 4px 0 #005500;   /* 下右阴影 */
-    border: 3px solid #00FF00; /* 更清晰的边框 */
-}
-
-button:hover, .cta-button:hover {
-    /* 保持悬停时的交互感 */
-    transform: translate(0);
-    box-shadow: 
-        -2px -2px 0 #005500, 
-        2px 2px 0 #005500;
-}
-
-/* 作弊/跳过按钮的特殊警告色 */
-.skip-button {
-    background-color: #555;
-    border-color: #FF0000;
-    color: #FF0000;
-    box-shadow: 
-        -2px -2px 0 #333,
-        2px 2px 0 #333;
-    margin-top: 30px; /* 拉开距离，防止误触 */
-}
-
-.skip-button:hover {
-    background-color: #666;
-    border-color: #FF5555;
 }
