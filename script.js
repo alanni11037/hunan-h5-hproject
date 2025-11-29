@@ -1,3 +1,19 @@
+// 【新增】移动端高度修正函数 - 解决 iOS/Safari 底部被裁剪的问题
+function setFullHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    // 同时也修正容器高度
+    const container = document.getElementById('h5-container');
+    if (container) {
+        container.style.height = `${window.innerHeight}px`;
+    }
+}
+
+// 页面加载和窗口大小改变时运行
+setFullHeight();
+window.addEventListener('resize', setFullHeight);
+// -----------------------------------------------------
+
 let currentScene = 0;
 let selectedIngredients = new Set();
 let challengeTimer = null;
@@ -130,4 +146,5 @@ function toggleIngredient(button) {
         button.classList.add('selected');
     }
 }
+
 
