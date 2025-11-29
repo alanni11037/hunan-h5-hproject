@@ -5,21 +5,25 @@ body {
     font-family: 'ZCOOL KuaiLe', 'SimHei', sans-serif; 
     margin: 0;
     padding: 0;
-    overflow: hidden; 
+    
+    /* 核心兼容性修复 */
+    min-height: 100vh; /* 通用回退 */
+    min-height: -webkit-fill-available; /* 苹果 Safari 的优化属性 */
+    
+    overflow: hidden; /* 保持隐藏滚动条 */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
 
 #h5-container {
     width: 100%;
     max-width: 450px; 
-    height: 100vh;
-    /* 移除硬边框，只保留柔和的光晕 */
+    /* ⚠️ 移除这里的 height 属性！让 JS 来控制它。*/
+    
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); 
     background-color: #222;
-    /* 已删除：border: 5px solid #00FF00; */ 
+    border: none !important; 
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -318,4 +322,5 @@ h1, h2, .invite-title, .final-message {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
 
