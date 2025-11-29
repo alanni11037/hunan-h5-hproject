@@ -41,6 +41,7 @@ body {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     
+    /* 霓虹风格增强 */
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); 
     border: none; 
 }
@@ -316,4 +317,3 @@ h1, h2, .invite-title, .final-message {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
-
