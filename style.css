@@ -316,4 +316,58 @@ button:hover, .cta-button:hover {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
+
+}
+
+/* --- 像素游戏风格增强：外边框和阴影 --- */
+
+/* 场景容器添加像素边框和内阴影 */
+.scene {
+    box-shadow: 
+        inset 0 0 0 4px #00FF00, /* 内部绿色边框 */
+        0 0 20px #000;          /* 外部柔和阴影 */
+    border: none; /* 移除原来的边框，交给阴影处理 */
+}
+
+/* 规则框添加更明显的像素化边框和深度 */
+.rules-box {
+    /* 模拟像素深度和阴影 */
+    box-shadow: 4px 4px 0 #550055, /* 像素块阴影 */
+                inset 0 0 0 3px #FF00FF; /* 内部霓虹边框 */
+    border: none; /* 移除原来的 dashed 边框 */
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: perspective(1px); /* 修复部分安卓/iOS 渲染问题 */
+}
+
+/* 按钮添加硬核像素边框 */
+button, .cta-button, .pixel-input {
+    /* 将原来的 box-shadow 改为更清晰的像素边框 */
+    box-shadow: 
+        -4px -4px 0 #005500, /* 上左阴影 */
+        4px 4px 0 #005500;   /* 下右阴影 */
+    border: 3px solid #00FF00; /* 更清晰的边框 */
+}
+
+button:hover, .cta-button:hover {
+    /* 保持悬停时的交互感 */
+    transform: translate(0);
+    box-shadow: 
+        -2px -2px 0 #005500, 
+        2px 2px 0 #005500;
+}
+
+/* 作弊/跳过按钮的特殊警告色 */
+.skip-button {
+    background-color: #555;
+    border-color: #FF0000;
+    color: #FF0000;
+    box-shadow: 
+        -2px -2px 0 #333,
+        2px 2px 0 #333;
+    margin-top: 30px; /* 拉开距离，防止误触 */
+}
+
+.skip-button:hover {
+    background-color: #666;
+    border-color: #FF5555;
 }
