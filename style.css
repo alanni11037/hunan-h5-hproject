@@ -197,7 +197,7 @@ h1, h2, .invite-title, .final-message {
 /* 场景 0: 封面/入口 - 终端机界面 */
 #scene-0 {
     background-color: #000000;
-    background-image: url('./images/bg_start_screen.png'); 
+    background-image: url('./images/xing.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -207,7 +207,7 @@ h1, h2, .invite-title, .final-message {
 /* 场景 1: 橘子洲头 - 青年之问 */
 #scene-1 {
     background-color: #1a4d3a; 
-    background-image: url('./images/bg_juzizhou.jpg'); 
+    background-image: url('./images/juzizhou.jpg'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -217,7 +217,7 @@ h1, h2, .invite-title, .final-message {
 /* 场景 2: 岳麓书院 - 读书人守则 */
 #scene-2 {
     background-color: #583c26; 
-    background-image: url('./images/bg_yuelu_academy.jpg'); 
+    background-image: url('./images/yuelushan1.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -227,7 +227,7 @@ h1, h2, .invite-title, .final-message {
 /* 场景 3: 张家界 - 奇险试炼 */
 #scene-3 {
     background-color: #121f2d; 
-    background-image: url('./images/bg_zhangjiajie.jpg'); 
+    background-image: url('./images/zhangjiajie.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -237,7 +237,7 @@ h1, h2, .invite-title, .final-message {
 /* 场景 4: 凤凰古城 - 边城迷雾 */
 #scene-4 {
     background-color: #3f3f3f; 
-    background-image: url('./images/bg_phoenix_city.jpg'); 
+    background-image: url('./images/fenghuang.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -247,7 +247,7 @@ h1, h2, .invite-title, .final-message {
 /* 场景 5: 湘菜 - 火焰秘方 */
 #scene-5 {
     background-color: #7b0000; 
-    background-image: url('./images/bg_xiangcai.jpg'); 
+    background-image: url('./images/xiangcai.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -257,7 +257,7 @@ h1, h2, .invite-title, .final-message {
 /* 场景 6: 终点/解锁 - 奖励界面 */
 #scene-6 {
     background-color: #000000;
-    background-image: url('./images/bg_hunan_panorama.jpg'); 
+    background-image: url('./images/jiewei.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -319,3 +319,4 @@ h1, h2, .invite-title, .final-message {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
