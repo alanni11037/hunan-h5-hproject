@@ -16,9 +16,10 @@ body {
     width: 100%;
     max-width: 450px; 
     height: 100vh;
+    /* 移除硬边框，只保留柔和的光晕 */
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); 
     background-color: #222;
-    border: 5px solid #00FF00; 
+    /* 已删除：border: 5px solid #00FF00; */ 
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -317,3 +318,4 @@ h1, h2, .invite-title, .final-message {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
