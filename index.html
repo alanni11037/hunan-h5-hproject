@@ -50,14 +50,17 @@
             <p id="feedback-2" class="feedback"></p>
         </section>
 
-        <section id="scene-3" class="scene">
+       <section id="scene-3" class="scene">
             <h2>⛰️ 规则三：张家界 - 天门山试炼</h2>
             <div class="rules-box">
                 <p>你站在玻璃栈道。规则要求：在 <span id="timer-3">5</span> 秒内完成 **10** 次“心跳加速”点击，以证明勇气！</p>
+                <p class="quiz-text">当前点击数：<span id="counter-3">0</span>/10</p>
             </div>
             <button id="start-3" onclick="startChallenge(3)">[开始试炼]</button>
-            <button id="click-area-3" style="display: none;">心跳：<span id="counter-3">0</span>/10</button>
+            <button id="click-area-3" style="display: none;">点击这里加速</button>
             <p id="feedback-3" class="feedback"></p>
+            
+            <button class="skip-button" onclick="nextScene(4)">[紧急逃生：跳过]</button>
         </section>
         
         <section id="scene-4" class="scene">
@@ -101,3 +104,4 @@
 </body>
 
 </html>
+
