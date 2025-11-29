@@ -85,7 +85,7 @@ function startChallenge(sceneIndex) {
 
     let clicks = 0;
     let time = 5;
-    const requiredClicks = 10;
+    const requiredClicks = 15;
 
     startButton.style.display = 'none';
     clickArea.style.display = 'flex'; 
@@ -130,3 +130,4 @@ function toggleIngredient(button) {
         button.classList.add('selected');
     }
 }
+
