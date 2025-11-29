@@ -4,9 +4,17 @@ let challengeTimer = null;
 
 
 /**
- * 切换场景函数 (保持不变)
+ * 切换场景函数 
  */
 function nextScene(nextIndex) {
+    // 确保在跳转前清除场景 3 的计时器
+    if (currentScene === 3 && challengeTimer) {
+        clearInterval(challengeTimer);
+        challengeTimer = null;
+        document.getElementById(`click-area-3`).style.display = 'none';
+        document.getElementById(`start-3`).style.display = 'block'; 
+    }
+
     const currentElement = document.getElementById(`scene-${currentScene}`);
     if (currentElement) {
         currentElement.classList.remove('active');
@@ -21,27 +29,30 @@ function nextScene(nextIndex) {
 
 
 /**
- * 场景通用答案检查 (场景 2 的 case 2 已彻底删除)
+ * 场景通用答案检查 
  */
 function checkAnswer(sceneIndex, userAnswer = null) {
     const feedbackElement = document.getElementById(`feedback-${sceneIndex}`);
     let isCorrect = false;
 
     switch (sceneIndex) {
-        case 1: // 橘子洲头 (选择题)
+        case 1: // 橘子洲头 (青年之问)
+            // 答案：A. 到中流击水，浪遏飞舟。
             isCorrect = (userAnswer === 'A');
             break;
         
-        // **场景 2 (岳麓书院) 的 case 逻辑已删除，改为 HTML 直接跳转 nextScene(3)**
-
-        case 4: // 凤凰古城 (悬疑观察题)
+        case 4: { // 凤凰古城 (文人线索)
+            // 答案：B. 《边城》女主角翠翠的职业是看渡船。
             isCorrect = (userAnswer === 'B');
             break;
+        }
 
-        case 5: { // 湘菜 (多选配料题)
+        case 5: { // 湘菜 (火焰秘方)
+            // 核心配料：辣椒(chili), 蒜蓉(garlic), 酱油(soy)
             const required = ['chili', 'garlic', 'soy'];
             isCorrect = required.every(key => selectedIngredients.has(key));
 
+            // 答题后清除状态
             selectedIngredients.clear();
             document.querySelectorAll('.ingredient-button').forEach(btn => btn.classList.remove('selected'));
             break;
@@ -52,10 +63,10 @@ function checkAnswer(sceneIndex, userAnswer = null) {
     }
 
     if (isCorrect) {
-        feedbackElement.innerHTML = '✅ 规则验证成功！秘境大门已为你开启。';
+        feedbackElement.innerHTML = '✅ 秘境线索收集成功！继续旅程。';
         setTimeout(() => nextScene(sceneIndex + 1), 1000); 
     } else {
-        feedbackElement.innerHTML = '❌ 规则错误。请重新审视秘境提示！';
+        feedbackElement.innerHTML = '❌ 线索错误。请重新审视秘境提示！';
     }
 }
 
@@ -78,7 +89,7 @@ function startChallenge(sceneIndex) {
 
     startButton.style.display = 'none';
     clickArea.style.display = 'flex'; 
-    counterElement.textContent = '0';
+    counterElement.textContent = clicks;
     timerElement.textContent = time;
     feedbackElement.innerHTML = '点击开始！';
 
@@ -88,7 +99,7 @@ function startChallenge(sceneIndex) {
         if (clicks >= requiredClicks) {
             clearInterval(challengeTimer);
             clickArea.onclick = null;
-            feedbackElement.innerHTML = '✅ 挑战成功！你征服了天门山。';
+            feedbackElement.innerHTML = '✅ 勇气试炼成功！';
             setTimeout(() => nextScene(sceneIndex + 1), 1000);
         }
     };
